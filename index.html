@@ -161,7 +161,7 @@ function openForm(){
   const music = document.getElementById("musicFrame");
 
   if(music.src === ""){
-    music.src = "https://www.youtube.com/embed/HN-T2lmw4QA?autoplay=1&loop=1&playlist=HN-T2lmw4QA";
+    music.src = "https://www.youtube.com/embed/HN-T2lmw4QA?autoplay=1&loop=1&playlist=HN-T2lmw4QA&enablejsapi=1";
   }
 }
 function closeForm(){
@@ -211,8 +211,12 @@ document.getElementById("friendForm").addEventListener("submit", e => {
 });
 </script>
 
-<iframe id="musicFrame" width="0" height="0"
-frameborder="0" allow="autoplay">
+<iframe id="musicFrame"
+width="0"
+height="0"
+frameborder="0"
+allow="autoplay; encrypted-media"
+allowfullscreen>
 </iframe>
 </body>
 </html>
