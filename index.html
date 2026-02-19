@@ -154,7 +154,15 @@ input{
 <script>
 // เปิดปิดฟอร์ม
 function openForm(){
+  // เปิด popup
   document.getElementById("formPopup").style.display="flex";
+
+  // เริ่มเล่นเพลง (ถ้ายังไม่เคยเล่น)
+  const music = document.getElementById("musicFrame");
+
+  if(music.src === ""){
+    music.src = "https://www.youtube.com/embed/HN-T2lmw4QA?autoplay=1&loop=1&playlist=HN-T2lmw4QA";
+  }
 }
 function closeForm(){
   document.getElementById("formPopup").style.display="none";
@@ -203,11 +211,8 @@ document.getElementById("friendForm").addEventListener("submit", e => {
 });
 </script>
 
-<!-- เพลง autoplay -->
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/HN-T2lmw4QA?autoplay=1&loop=1&playlist=HN-T2lmw4QA"
+<iframe id="musicFrame" width="0" height="0"
 frameborder="0" allow="autoplay">
 </iframe>
-
 </body>
 </html>
