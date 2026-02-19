@@ -154,15 +154,10 @@ input{
 <script>
 // เปิดปิดฟอร์ม
 function openForm(){
-  // เปิด popup
   document.getElementById("formPopup").style.display="flex";
 
-  // เริ่มเล่นเพลง (ถ้ายังไม่เคยเล่น)
-  const music = document.getElementById("musicFrame");
-
-  if(music.src === ""){
-    music.src = "https://www.youtube.com/embed/HN-T2lmw4QA?autoplay=1&loop=1&playlist=HN-T2lmw4QA&enablejsapi=1";
-  }
+  const music = document.getElementById("bgMusic");
+  music.play();
 }
 function closeForm(){
   document.getElementById("formPopup").style.display="none";
@@ -211,12 +206,8 @@ document.getElementById("friendForm").addEventListener("submit", e => {
 });
 </script>
 
-<iframe id="musicFrame"
-width="0"
-height="0"
-frameborder="0"
-allow="autoplay; encrypted-media"
-allowfullscreen>
-</iframe>
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
