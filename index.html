@@ -137,8 +137,11 @@ input{
 <div class="popup" id="formPopup">
   <div class="popup-content">
     <span class="close" onclick="closeForm()">✖</span>
-    <iframe src="https://forms.gle/99vnzu2SYQzP59dK8"
-    width="100%" height="100%" frameborder="0"></iframe>
+    <form id="friendForm" style="padding:20px;">
+  <input type="text" id="name" placeholder="ข้อความนี้ถูกส่งโดย" required style="width:90%;"><br><br>
+  <textarea id="message" placeholder="อยากบอกอะไรถึงเพชร" rows="5" required style="width:90%;"></textarea><br><br>
+  <button class="button" type="submit">ส่งข้อความ</button>
+</form>
   </div>
 </div>
 
@@ -161,7 +164,7 @@ function showAdmin(){
 }
 function checkPass(){
   const p=document.getElementById("pass").value;
-  if(p==="7382"){
+  if(p==="7384"){
     window.open("https://docs.google.com/spreadsheets/", "_blank");
   }else{
     alert("รหัสไม่ถูกต้อง");
@@ -178,6 +181,26 @@ for(let i=0;i<80;i++){
   star.style.animationDelay=Math.random()*2+"s";
   starsContainer.appendChild(star);
 }
+const scriptURL = "https://script.google.com/macros/s/AKfycbxlHRTl5oI-tPGTeoRRAzZCcftsZNgcFVk80U6RktaN4FIedRbAPZlmaIm43I7CWar5/exec";
+
+document.getElementById("friendForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      message: document.getElementById("message").value
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("ส่งข้อความเรียบร้อย");
+    document.getElementById("friendForm").reset();
+    closeForm();
+  })
+  .catch(err => alert("เกิดข้อผิดพลาด"));
+})
 </script>
 
 <!-- เพลง autoplay -->
