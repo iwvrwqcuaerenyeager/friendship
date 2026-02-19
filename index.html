@@ -132,7 +132,6 @@ input{
 </div>
 
 <button class="button" onclick="openForm()">💬 เขียนข้อความถึงเพชร</button>
-<button class="button" onclick="showAdmin()">🔒 เข้าดูข้อความลับ</button>
 
 <div class="popup" id="formPopup">
   <div class="popup-content">
@@ -143,12 +142,6 @@ input{
   <button class="button" type="submit">ส่งข้อความ</button>
 </form>
   </div>
-</div>
-
-<div class="admin-panel" id="adminPanel">
-  <h2>🔐 ใส่รหัสผ่าน</h2>
-  <input type="password" id="pass">
-  <button class="button" onclick="checkPass()">เข้าสู่ระบบ</button>
 </div>
 
 <script>
@@ -163,17 +156,6 @@ function openForm(){
 }
 function closeForm(){
   document.getElementById("formPopup").style.display="none";
-}
-function showAdmin(){
-  document.getElementById("adminPanel").style.display="block";
-}
-function checkPass(){
-  const p=document.getElementById("pass").value;
-  if(p==="7384"){
-    window.open("https://docs.google.com/spreadsheets/d/1y2517Gy2OqIlIDyUXbWRxGvTr_atF3-Z5Bii0pj-aKs/edit?gid=0#gid=0", "_blank");
-  }else{
-    alert("รหัสไม่ถูกต้อง");
-  }
 }
 
 // สร้างดาวแบบสุ่ม
